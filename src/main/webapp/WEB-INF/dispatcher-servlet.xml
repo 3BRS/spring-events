@@ -14,9 +14,17 @@
     <context:component-scan base-package="eu.keyup.listener" />
 
     <bean id="applicationEventMulticaster"
-          class="org.springframework.context.event.SimpleApplicationEventMulticaster">
-        <property name="taskExecutor">
-            <bean class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"/>
+          class="eu.keyup.multicaster.DistributiveEventMulticaster">
+        <property name="syncEventMulticaster">
+            <bean class="org.springframework.context.event.SimpleApplicationEventMulticaster">
+            </bean>
+        </property>
+        <property name="asyncEventMulticaster">
+            <bean class="org.springframework.context.event.SimpleApplicationEventMulticaster">
+                <property name="taskExecutor">
+                    <bean class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"/>
+                </property>
+            </bean>
         </property>
     </bean>
 

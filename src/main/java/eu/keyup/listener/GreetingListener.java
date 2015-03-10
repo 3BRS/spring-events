@@ -1,10 +1,12 @@
 package eu.keyup.listener;
 
 import eu.keyup.event.UserGreeted;
+import eu.keyup.multicaster.AsyncListener;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
+@AsyncListener
 @Component
 public class GreetingListener implements ApplicationListener<UserGreeted> {
     @Override
