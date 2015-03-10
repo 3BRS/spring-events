@@ -10,6 +10,9 @@
     <!--Scan for controllers-->
     <context:component-scan base-package="eu.keyup.controller" />
 
+    <!--Scan for listeners-->
+    <context:component-scan base-package="eu.keyup.listener" />
+
     <!--View resolver-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />
