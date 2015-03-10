@@ -13,6 +13,13 @@
     <!--Scan for listeners-->
     <context:component-scan base-package="eu.keyup.listener" />
 
+    <bean id="applicationEventMulticaster"
+          class="org.springframework.context.event.SimpleApplicationEventMulticaster">
+        <property name="taskExecutor">
+            <bean class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor"/>
+        </property>
+    </bean>
+
     <!--View resolver-->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />
